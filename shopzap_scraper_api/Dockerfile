@@ -9,7 +9,7 @@ RUN npm install --production
 COPY . .
 
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
-RUN npx playwright install --with-deps
+RUN apk add --no-cache udev chromium chromium-dev harfbuzz-icu openjdk17-jre-headless && npx playwright install --with-deps
 
 EXPOSE 3000
 
