@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shopzap-scraper-api
+    env: docker
+    dockerfilePath: Dockerfile
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: "3000"
+      - key: WEBHOOK_URL
+        sync: false # Set to true if you want to sync from Render dashboard
+      - key: PROXY_LIST
+        sync: false # Set to true if you want to sync from Render dashboard
+      - key: API_KEYS
+        sync: false # Set to true if you want to sync from Render dashboard
+    healthCheckPath: /
